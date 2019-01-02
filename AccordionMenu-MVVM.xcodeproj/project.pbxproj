@@ -12,6 +12,8 @@
 		45F4B9FE21DCE7FC001F9030 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45F4B9FC21DCE7FC001F9030 /* Main.storyboard */; };
 		45F4BA0021DCE7FD001F9030 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45F4B9FF21DCE7FD001F9030 /* Assets.xcassets */; };
 		45F4BA0321DCE7FD001F9030 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45F4BA0121DCE7FD001F9030 /* LaunchScreen.storyboard */; };
+		45F4BA1021DCEC4B001F9030 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F4BA0F21DCEC4B001F9030 /* ViewModel.swift */; };
+		45F4BA1221DCED6F001F9030 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F4BA1121DCED6F001F9030 /* DataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		45F4B9FF21DCE7FD001F9030 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45F4BA0221DCE7FD001F9030 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45F4BA0421DCE7FD001F9030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45F4BA0F21DCEC4B001F9030 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		45F4BA1121DCED6F001F9030 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,48 @@
 		45F4B9F721DCE7FC001F9030 /* AccordionMenu-MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				45F4B9F821DCE7FC001F9030 /* AppDelegate.swift */,
+				45F4BA0A21DCEA5E001F9030 /* Model */,
+				45F4BA0B21DCEA83001F9030 /* View */,
+				45F4BA0D21DCEA8F001F9030 /* ViewModel */,
+				45F4BA0E21DCEAE0001F9030 /* Other */,
+			);
+			path = "AccordionMenu-MVVM";
+			sourceTree = "<group>";
+		};
+		45F4BA0A21DCEA5E001F9030 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				45F4BA1121DCED6F001F9030 /* DataStore.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		45F4BA0B21DCEA83001F9030 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				45F4B9FA21DCE7FC001F9030 /* ViewController.swift */,
 				45F4B9FC21DCE7FC001F9030 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		45F4BA0D21DCEA8F001F9030 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				45F4BA0F21DCEC4B001F9030 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		45F4BA0E21DCEAE0001F9030 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				45F4B9F821DCE7FC001F9030 /* AppDelegate.swift */,
 				45F4B9FF21DCE7FD001F9030 /* Assets.xcassets */,
 				45F4BA0121DCE7FD001F9030 /* LaunchScreen.storyboard */,
 				45F4BA0421DCE7FD001F9030 /* Info.plist */,
 			);
-			path = "AccordionMenu-MVVM";
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +174,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				45F4B9FB21DCE7FC001F9030 /* ViewController.swift in Sources */,
+				45F4BA1221DCED6F001F9030 /* DataStore.swift in Sources */,
+				45F4BA1021DCEC4B001F9030 /* ViewModel.swift in Sources */,
 				45F4B9F921DCE7FC001F9030 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +324,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVR5UQEHBD;
-				INFOPLIST_FILE = "AccordionMenu-MVVM/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/AccordionMenu-MVVM/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +342,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVR5UQEHBD;
-				INFOPLIST_FILE = "AccordionMenu-MVVM/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/AccordionMenu-MVVM/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
