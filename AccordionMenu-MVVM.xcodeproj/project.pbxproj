@@ -14,7 +14,8 @@
 		45F4BA0321DCE7FD001F9030 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45F4BA0121DCE7FD001F9030 /* LaunchScreen.storyboard */; };
 		45F4BA1021DCEC4B001F9030 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F4BA0F21DCEC4B001F9030 /* ViewModel.swift */; };
 		45F4BA1221DCED6F001F9030 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F4BA1121DCED6F001F9030 /* DataStore.swift */; };
-		45F4BA1421DDD748001F9030 /* AreaDataList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45F4BA1321DDD748001F9030 /* AreaDataList.plist */; };
+		45F4BA1621DDE9C9001F9030 /* AreaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F4BA1521DDE9C9001F9030 /* AreaData.swift */; };
+		45F4BA1821DDF3CF001F9030 /* areaData.json in Resources */ = {isa = PBXBuildFile; fileRef = 45F4BA1721DDF3CF001F9030 /* areaData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +28,8 @@
 		45F4BA0421DCE7FD001F9030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45F4BA0F21DCEC4B001F9030 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		45F4BA1121DCED6F001F9030 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
-		45F4BA1321DDD748001F9030 /* AreaDataList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AreaDataList.plist; sourceTree = "<group>"; };
+		45F4BA1521DDE9C9001F9030 /* AreaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaData.swift; sourceTree = "<group>"; };
+		45F4BA1721DDF3CF001F9030 /* areaData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = areaData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				45F4BA1121DCED6F001F9030 /* DataStore.swift */,
+				45F4BA1521DDE9C9001F9030 /* AreaData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,8 +102,8 @@
 				45F4B9F821DCE7FC001F9030 /* AppDelegate.swift */,
 				45F4B9FF21DCE7FD001F9030 /* Assets.xcassets */,
 				45F4BA0121DCE7FD001F9030 /* LaunchScreen.storyboard */,
+				45F4BA1721DDF3CF001F9030 /* areaData.json */,
 				45F4BA0421DCE7FD001F9030 /* Info.plist */,
-				45F4BA1321DDD748001F9030 /* AreaDataList.plist */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -165,8 +168,8 @@
 			files = (
 				45F4BA0321DCE7FD001F9030 /* LaunchScreen.storyboard in Resources */,
 				45F4BA0021DCE7FD001F9030 /* Assets.xcassets in Resources */,
+				45F4BA1821DDF3CF001F9030 /* areaData.json in Resources */,
 				45F4B9FE21DCE7FC001F9030 /* Main.storyboard in Resources */,
-				45F4BA1421DDD748001F9030 /* AreaDataList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +184,7 @@
 				45F4BA1221DCED6F001F9030 /* DataStore.swift in Sources */,
 				45F4BA1021DCEC4B001F9030 /* ViewModel.swift in Sources */,
 				45F4B9F921DCE7FC001F9030 /* AppDelegate.swift in Sources */,
+				45F4BA1621DDE9C9001F9030 /* AreaData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,22 @@
+{
+	"largeAreaData": [
+		{
+			"areaName": "石川",
+			"smallAreaData": {
+				"areaNames": ["金沢", "小松", "加賀", "能登"]
+			}
+		},
+		{
+			"areaName": "富山",
+			"smallAreaData": {
+				"areaNames": ["高岡", "砺波", "氷見"]
+			}
+		},
+		{
+			"areaName": "福井",
+			"smallAreaData": {
+				"areaNames": ["鯖江", "越前", "敦賀", "若狭", "坂井"]
+			}
+		}
+	]
+}

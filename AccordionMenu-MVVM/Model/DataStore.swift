@@ -6,4 +6,12 @@
 //  Copyright © 2019 kawaharadai. All rights reserved.
 //
 
-final class DataStore {}
+import Foundation
+
+final class DataStore {
+
+    static func getAreaData() {
+       
+    }
+
+}
