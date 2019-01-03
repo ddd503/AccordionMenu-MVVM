@@ -9,9 +9,13 @@
 import Foundation
 
 final class DataStore {
-
-    static func getAreaData() {
-       
+    static func getAreaData() -> AreaData {
+        guard let filePath = Bundle.main.path(forResource: "areaData", ofType: "json") else { fatalError() }
+        do {
+            let jsonData = try Data(contentsOf: URL(fileURLWithPath: filePath), options: .mappedIfSafe)
+            let decoder = JSONDecoder()
+            let response = try decoder.decode(AreaData.self, from: jsonData)
+            return response
+        } catch { fatalError() }
     }
-
 }
