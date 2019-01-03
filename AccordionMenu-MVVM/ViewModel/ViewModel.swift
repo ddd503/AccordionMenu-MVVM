@@ -7,11 +7,11 @@
 //
 
 protocol ViewModelInputs: class {
-
+    func viewDidLoad()
 }
 
 protocol ViewModelOutputs: class {
-
+    var updateTableView: () -> Void { get set }
 }
 
 protocol ViewModelType {
@@ -19,13 +19,21 @@ protocol ViewModelType {
     var outputs: ViewModelOutputs { get }
 }
 
-final class ViewModel {}
+final class ViewModel {
+
+    var updateTableView: () -> Void = {}
+
+}
 
 extension ViewModel: ViewModelType {
     var inputs: ViewModelInputs { return self }
     var outputs: ViewModelOutputs { return self }
 }
 
-extension ViewModel: ViewModelInputs {}
+extension ViewModel: ViewModelInputs {
+    func viewDidLoad() {
+        
+    }
+}
 
 extension ViewModel: ViewModelOutputs {}

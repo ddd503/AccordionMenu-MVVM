@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AreaData</key>
+	<array>
+		<dict>
+			<key>AreaName</key>
+			<string>石川</string>
+			<key>SmallAreaData</key>
+			<array>
+				<string>金沢</string>
+				<string>小松</string>
+				<string>加賀</string>
+				<string>能登</string>
+			</array>
+		</dict>
+		<dict>
+			<key>AreaName</key>
+			<string>富山</string>
+			<key>SmallAreaData</key>
+			<array>
+				<string>高岡</string>
+				<string>砺波</string>
+				<string>氷見</string>
+			</array>
+		</dict>
+		<dict>
+			<key>AreaName</key>
+			<string>福井</string>
+			<key>SmallAreaData</key>
+			<array>
+				<string>鯖江</string>
+				<string>越前</string>
+				<string>敦賀</string>
+				<string>若狭</string>
+				<string>坂井</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
