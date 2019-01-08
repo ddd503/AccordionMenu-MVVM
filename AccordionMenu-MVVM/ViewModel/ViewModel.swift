@@ -19,20 +19,15 @@ protocol ViewModelType {
     var outputs: ViewModelOutputs { get }
 }
 
-final class ViewModel {
-
-    var updateTableView: () -> Void = {}
-
-}
-
-extension ViewModel: ViewModelType {
+final class ViewModel: ViewModelType {
     var inputs: ViewModelInputs { return self }
     var outputs: ViewModelOutputs { return self }
+    var updateTableView: () -> Void = {}
 }
 
 extension ViewModel: ViewModelInputs {
     func viewDidLoad() {
-        
+
     }
 }
 
