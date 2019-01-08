@@ -27,7 +27,7 @@ final class ViewModel: ViewModelType {
 
 extension ViewModel: ViewModelInputs {
     func viewDidLoad() {
-
+        updateTableView()
     }
 }
 
