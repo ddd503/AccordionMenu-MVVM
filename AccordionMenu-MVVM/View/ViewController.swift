@@ -10,6 +10,7 @@ import UIKit
 
 final class ViewController: UIViewController {
 
+    @IBOutlet private weak var tableView: UITableView!
     private let viewModel = ViewModel()
 
     override func viewDidLoad() {
@@ -20,8 +21,9 @@ final class ViewController: UIViewController {
 
     private func bindViewModel() {
         viewModel.outputs.updateTableView = { [weak self] in
-            // TODO: - call tableView reload
-            print("call tableView reload")
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
     }
 
