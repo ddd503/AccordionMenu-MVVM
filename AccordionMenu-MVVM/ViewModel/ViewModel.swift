@@ -11,6 +11,7 @@ protocol ViewModelInputs: class {
 }
 
 protocol ViewModelOutputs: class {
+    var setup: () -> Void { get set }
     var updateTableView: () -> Void { get set }
 }
 
@@ -22,12 +23,13 @@ protocol ViewModelType {
 final class ViewModel: ViewModelType {
     var inputs: ViewModelInputs { return self }
     var outputs: ViewModelOutputs { return self }
+    var setup: () -> Void = {}
     var updateTableView: () -> Void = {}
 }
 
 extension ViewModel: ViewModelInputs {
     func viewDidLoad() {
-        updateTableView()
+        setup()
     }
 }
 

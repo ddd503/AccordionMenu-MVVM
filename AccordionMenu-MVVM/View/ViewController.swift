@@ -20,6 +20,9 @@ final class ViewController: UIViewController {
     }
 
     private func bindViewModel() {
+        viewModel.outputs.setup = { [weak self] in
+            // call startup methods
+        }
         viewModel.outputs.updateTableView = { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
