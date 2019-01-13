@@ -39,6 +39,5 @@ extension ViewModel: ViewModelInputs {
 
 extension ViewModel: ViewModelOutputs {
     var largeArea: [AreaData.LargeAreaData] { return areaData?.largeAreaData ?? [] }
-
     var largeAreaCount: Int { return areaData?.largeAreaData.count ?? 0 }
 }

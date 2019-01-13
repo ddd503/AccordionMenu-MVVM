@@ -16,6 +16,7 @@
 		45F4BA1221DCED6F001F9030 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F4BA1121DCED6F001F9030 /* DataStore.swift */; };
 		45F4BA1621DDE9C9001F9030 /* AreaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F4BA1521DDE9C9001F9030 /* AreaData.swift */; };
 		45F4BA1821DDF3CF001F9030 /* areaData.json in Resources */ = {isa = PBXBuildFile; fileRef = 45F4BA1721DDF3CF001F9030 /* areaData.json */; };
+		45F4BA1C21EB9C21001F9030 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F4BA1B21EB9C20001F9030 /* MenuCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		45F4BA1121DCED6F001F9030 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		45F4BA1521DDE9C9001F9030 /* AreaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaData.swift; sourceTree = "<group>"; };
 		45F4BA1721DDF3CF001F9030 /* areaData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = areaData.json; sourceTree = "<group>"; };
+		45F4BA1B21EB9C20001F9030 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			children = (
 				45F4B9FA21DCE7FC001F9030 /* ViewController.swift */,
 				45F4B9FC21DCE7FC001F9030 /* Main.storyboard */,
+				45F4BA1B21EB9C20001F9030 /* MenuCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 			files = (
 				45F4B9FB21DCE7FC001F9030 /* ViewController.swift in Sources */,
 				45F4BA1221DCED6F001F9030 /* DataStore.swift in Sources */,
+				45F4BA1C21EB9C21001F9030 /* MenuCell.swift in Sources */,
 				45F4BA1021DCEC4B001F9030 /* ViewModel.swift in Sources */,
 				45F4B9F921DCE7FC001F9030 /* AppDelegate.swift in Sources */,
 				45F4BA1621DDE9C9001F9030 /* AreaData.swift in Sources */,

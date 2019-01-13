@@ -38,11 +38,13 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let largeArea = viewModel.outputs.largeArea
-        if !largeArea.isEmpty {
-            cell.textLabel?.text = largeArea[indexPath.row].areaName
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MenuCell.identifier, for: indexPath) as? MenuCell else {
+            fatalError()
         }
+//        let largeArea = viewModel.outputs.largeArea
+//        if !largeArea.isEmpty {
+//            cell.textLabel?.text = largeArea[indexPath.row].areaName
+//        }
         return cell
     }
 }
