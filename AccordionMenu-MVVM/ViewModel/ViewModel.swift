@@ -13,6 +13,8 @@ protocol ViewModelInputs: class {
 protocol ViewModelOutputs: class {
     var setup: () -> Void { get set }
     var updateTableView: () -> Void { get set }
+    var largeArea: [AreaData.LargeAreaData] { get }
+    var largeAreaCount: Int { get }
 }
 
 protocol ViewModelType {
@@ -25,12 +27,18 @@ final class ViewModel: ViewModelType {
     var outputs: ViewModelOutputs { return self }
     var setup: () -> Void = {}
     var updateTableView: () -> Void = {}
+    private var areaData: AreaData?
 }
 
 extension ViewModel: ViewModelInputs {
     func viewDidLoad() {
+        areaData = DataStore.getAreaData()
         setup()
     }
 }
 
-extension ViewModel: ViewModelOutputs {}
+extension ViewModel: ViewModelOutputs {
+    var largeArea: [AreaData.LargeAreaData] { return areaData?.largeAreaData ?? [] }
+
+    var largeAreaCount: Int { return areaData?.largeAreaData.count ?? 0 }
+}

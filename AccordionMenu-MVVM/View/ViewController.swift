@@ -21,7 +21,7 @@ final class ViewController: UIViewController {
 
     private func bindViewModel() {
         viewModel.outputs.setup = { [weak self] in
-            // call startup methods
+            self?.tableView.dataSource = self
         }
         viewModel.outputs.updateTableView = { [weak self] in
             DispatchQueue.main.async {
@@ -32,3 +32,17 @@ final class ViewController: UIViewController {
 
 }
 
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.outputs.largeAreaCount
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let largeArea = viewModel.outputs.largeArea
+        if !largeArea.isEmpty {
+            cell.textLabel?.text = largeArea[indexPath.row].areaName
+        }
+        return cell
+    }
+}
