@@ -41,10 +41,11 @@ extension ViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MenuCell.identifier, for: indexPath) as? MenuCell else {
             fatalError()
         }
-//        let largeArea = viewModel.outputs.largeArea
-//        if !largeArea.isEmpty {
-//            cell.textLabel?.text = largeArea[indexPath.row].areaName
-//        }
+        guard !viewModel.outputs.largeArea.isEmpty else {
+            // display error screen
+            return cell
+        }
+        cell.setLargeAreaData(viewModel.outputs.largeArea[indexPath.row])
         return cell
     }
 }

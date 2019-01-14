@@ -27,13 +27,17 @@ final class ViewModel: ViewModelType {
     var outputs: ViewModelOutputs { return self }
     var setup: () -> Void = {}
     var updateTableView: () -> Void = {}
-    private var areaData: AreaData?
+    private var areaData: AreaData? {
+        didSet {
+            updateTableView()
+        }
+    }
 }
 
 extension ViewModel: ViewModelInputs {
     func viewDidLoad() {
-        areaData = DataStore.getAreaData()
         setup()
+        areaData = DataStore.getAreaData()
     }
 }
 

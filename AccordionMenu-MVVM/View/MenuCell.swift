@@ -19,6 +19,17 @@ final class MenuCell: UITableViewCell {
         return String(describing: self)
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        smallAreaView.isHidden = true
+    }
+
+    func setLargeAreaData(_ largeAreaData: AreaData.LargeAreaData) {
+        DispatchQueue.main.async {
+            self.largeAreaLabel.text = largeAreaData.areaName
+        }
+    }
+
     @IBAction private func accordionAction(_ sender: UIButton) {
 
     }
