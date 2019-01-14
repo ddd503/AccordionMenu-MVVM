@@ -14,6 +14,7 @@ final class MenuCell: UITableViewCell {
     @IBOutlet private weak var smallAreaView: UIView!
     @IBOutlet private weak var largeAreaLabel: UILabel!
     @IBOutlet private weak var smallAreaLabel: UILabel!
+    private var viewModel: ViewModel!
 
     static var identifier: String {
         return String(describing: self)
@@ -24,14 +25,24 @@ final class MenuCell: UITableViewCell {
         smallAreaView.isHidden = true
     }
 
-    func setLargeAreaData(_ largeAreaData: AreaData.LargeAreaData) {
+    func setupMenuCell(viewModel: ViewModel, largeAreaData: AreaData.LargeAreaData) {
+        self.viewModel = viewModel
+        bindViewModel()
         DispatchQueue.main.async {
             self.largeAreaLabel.text = largeAreaData.areaName
         }
     }
 
-    @IBAction private func accordionAction(_ sender: UIButton) {
+    private func bindViewModel() {
+        viewModel.outputs.switchAccordionState = { [weak self] in
+            DispatchQueue.main.async {
+                self?.smallAreaView.isHidden.toggle()
+            }
+        }
+    }
 
+    @IBAction private func accordionAction(_ sender: UIButton) {
+        viewModel.inputs.tapAccordionButton()
     }
 
 }
