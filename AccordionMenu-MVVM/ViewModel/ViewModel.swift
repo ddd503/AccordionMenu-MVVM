@@ -15,6 +15,8 @@ protocol ViewModelOutputs: class {
     var setup: () -> Void { get set }
     var updateTableView: () -> Void { get set }
     var switchAccordionState: () -> Void { get set }
+    var beginChangeTableView: () -> Void { get set }
+    var endChangeTableView: () -> Void { get set }
     var largeArea: [AreaData.LargeAreaData] { get }
     var largeAreaCount: Int { get }
 }
@@ -30,6 +32,8 @@ final class ViewModel: ViewModelType {
     var setup: () -> Void = {}
     var updateTableView: () -> Void = {}
     var switchAccordionState: () -> Void = {}
+    var beginChangeTableView: () -> Void = {}
+    var endChangeTableView: () -> Void = {}
     private var areaData: AreaData? {
         didSet {
             updateTableView()
@@ -43,7 +47,9 @@ extension ViewModel: ViewModelInputs {
         areaData = DataStore.getAreaData()
     }
     func tapAccordionButton() {
+        beginChangeTableView()
         switchAccordionState()
+        endChangeTableView()
     }
 }
 

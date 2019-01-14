@@ -28,6 +28,16 @@ final class ViewController: UIViewController {
                 self?.tableView.reloadData()
             }
         }
+        viewModel.outputs.beginChangeTableView = { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.beginUpdates()
+            }
+        }
+        viewModel.outputs.endChangeTableView = { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.endUpdates()
+            }
+        }
     }
 
 }
