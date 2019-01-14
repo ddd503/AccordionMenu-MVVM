@@ -55,7 +55,7 @@ extension ViewController: UITableViewDataSource {
             // display error screen
             return cell
         }
-        cell.setupMenuCell(viewModel: viewModel, largeAreaData: viewModel.outputs.largeArea[indexPath.row])
+        cell.setupMenuCell(largeAreaData: viewModel.outputs.largeArea[indexPath.row])
         return cell
     }
 }
