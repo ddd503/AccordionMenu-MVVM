@@ -48,14 +48,11 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MenuCell.identifier, for: indexPath) as? MenuCell else {
-            fatalError()
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         guard !viewModel.outputs.largeArea.isEmpty else {
             // display error screen
             return cell
         }
-        cell.setupMenuCell(largeAreaData: viewModel.outputs.largeArea[indexPath.row])
         return cell
     }
 }
