@@ -13,10 +13,11 @@ final class TableViewHeader: UIView {
     @IBOutlet private weak var largeAreaNameLabel: UILabel!
     @IBOutlet private weak var arrowImageView: UIImageView!
 
-    class func instance() -> TableViewHeader {
+    class func instance(title: String?) -> TableViewHeader {
         guard let view = TableViewHeader.nib().instantiate(withOwner: self, options: nil).first as? TableViewHeader else {
             fatalError("failuer get xib")
         }
+        view.largeAreaNameLabel.text = title
         return view
     }
 
@@ -26,10 +27,6 @@ final class TableViewHeader: UIView {
 
     static func nib() -> UINib {
         return UINib(nibName: identifier, bundle: nil)
-    }
-
-    func setTitle(largeAreaName: String?) {
-        largeAreaNameLabel.text = largeAreaName
     }
 
 }

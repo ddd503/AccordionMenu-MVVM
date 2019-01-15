@@ -64,9 +64,7 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = TableViewHeader.instance()
         let largeAreaName = viewModel.outputs.largeArea.isEmpty ? nil : viewModel.outputs.largeArea[section].areaName
-        headerView.setTitle(largeAreaName: largeAreaName)
-        return headerView
+        return TableViewHeader.instance(title: largeAreaName)
     }
 }
