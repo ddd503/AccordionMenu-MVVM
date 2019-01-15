@@ -49,15 +49,15 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if viewModel.outputs.largeArea.isEmpty {
+            return 0
+        }
+        return viewModel.outputs.largeArea[section].smallAreaData.areaNames.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        guard !viewModel.outputs.largeArea.isEmpty else {
-            // display error screen
-            return cell
-        }
+        cell.textLabel?.text = viewModel.outputs.largeArea[indexPath.section].smallAreaData.areaNames[indexPath.row]
         return cell
     }
 }
