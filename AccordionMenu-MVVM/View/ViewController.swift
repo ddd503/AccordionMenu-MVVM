@@ -22,6 +22,7 @@ final class ViewController: UIViewController {
     private func bindViewModel() {
         viewModel.outputs.setup = { [weak self] in
             self?.tableView.dataSource = self
+            self?.tableView.delegate = self
         }
         viewModel.outputs.updateTableView = { [weak self] in
             DispatchQueue.main.async {
@@ -43,8 +44,12 @@ final class ViewController: UIViewController {
 }
 
 extension ViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.outputs.largeAreaCount
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,5 +59,14 @@ extension ViewController: UITableViewDataSource {
             return cell
         }
         return cell
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = TableViewHeader.instance()
+        let largeAreaName = viewModel.outputs.largeArea.isEmpty ? nil : viewModel.outputs.largeArea[section].areaName
+        headerView.setTitle(largeAreaName: largeAreaName)
+        return headerView
     }
 }
