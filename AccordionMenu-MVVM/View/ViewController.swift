@@ -49,10 +49,10 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if viewModel.outputs.largeArea.isEmpty {
-            return 0
-        }
-        return viewModel.outputs.largeArea[section].smallAreaData.areaNames.count
+        // TODO: - ロジックが入ってしまっているためVMへ移す必要がある
+        let smallAreaData = viewModel.outputs.largeArea[section].smallAreaData
+        if viewModel.outputs.largeArea.isEmpty || smallAreaData.isHidden { return 0 }
+        return smallAreaData.areaNames.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

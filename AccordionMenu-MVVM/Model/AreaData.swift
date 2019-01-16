@@ -20,5 +20,9 @@ extension AreaData {
 extension AreaData.LargeAreaData {
     struct SmallAreaData: Codable {
         let areaNames: [String]
+        var isHidden = true
+        private enum CodingKeys: String, CodingKey {
+            case areaNames
+        }
     }
 }
