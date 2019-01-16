@@ -6,15 +6,15 @@
 //  Copyright © 2019 kawaharadai. All rights reserved.
 //
 
+import Foundation
+
 protocol ViewModelInputs: class {
     func viewDidLoad()
-    func tapAccordionButton()
 }
 
 protocol ViewModelOutputs: class {
     var setup: () -> Void { get set }
     var updateTableView: () -> Void { get set }
-    var switchAccordionState: () -> Void { get set }
     var beginChangeTableView: () -> Void { get set }
     var endChangeTableView: () -> Void { get set }
     var largeArea: [AreaData.LargeAreaData] { get }
@@ -31,7 +31,6 @@ final class ViewModel: ViewModelType {
     var outputs: ViewModelOutputs { return self }
     var setup: () -> Void = {}
     var updateTableView: () -> Void = {}
-    var switchAccordionState: () -> Void = {}
     var beginChangeTableView: () -> Void = {}
     var endChangeTableView: () -> Void = {}
     private var areaData: AreaData? {
@@ -48,7 +47,6 @@ extension ViewModel: ViewModelInputs {
     }
     func tapAccordionButton() {
         beginChangeTableView()
-        switchAccordionState()
         endChangeTableView()
     }
 }
