@@ -23,6 +23,7 @@ final class ViewController: UIViewController {
         viewModel.outputs.setup = { [weak self] in
             self?.tableView.dataSource = self
             self?.tableView.delegate = self
+            self?.tableView.tableFooterView = UIView()
         }
         viewModel.outputs.updateTableView = { [weak self] in
             DispatchQueue.main.async {
