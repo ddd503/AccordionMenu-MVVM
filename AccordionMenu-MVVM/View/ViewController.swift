@@ -19,6 +19,11 @@ final class ViewController: UIViewController {
         viewModel.inputs.viewDidLoad()
     }
 
+    @objc private func didTapHeaderView(gestureRecognizer: UITapGestureRecognizer) {
+        guard let headerView = gestureRecognizer.view as? TableViewHeader else { return }
+        viewModel.inputs.didTapHeader(section: headerView.section)
+    }
+
     private func bindViewModel() {
         viewModel.outputs.setup = { [weak self] in
             self?.tableView.dataSource = self
@@ -67,6 +72,8 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         // TODO: - ロジックが入ってしまっているためVMへ移す必要がある
         let largeAreaName = viewModel.outputs.largeArea.isEmpty ? nil : viewModel.outputs.largeArea[section].areaName
-        return TableViewHeader.instance(title: largeAreaName)
+        let tableViewHeader = TableViewHeader.instance(title: largeAreaName, section: section)
+        tableViewHeader.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(didTapHeaderView(gestureRecognizer:))))
+        return tableViewHeader
     }
 }

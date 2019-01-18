@@ -10,6 +10,7 @@ import Foundation
 
 protocol ViewModelInputs: class {
     func viewDidLoad()
+    func didTapHeader(section: Int)
 }
 
 protocol ViewModelOutputs: class {
@@ -48,6 +49,10 @@ extension ViewModel: ViewModelInputs {
     func tapAccordionButton() {
         beginChangeTableView()
         endChangeTableView()
+    }
+    func didTapHeader(section: Int) {
+        guard var areaData = areaData else { return }
+        areaData.largeAreaData[section].smallAreaData.isHidden.toggle()
     }
 }
 

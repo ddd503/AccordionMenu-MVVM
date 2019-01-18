@@ -12,12 +12,14 @@ final class TableViewHeader: UIView {
 
     @IBOutlet private weak var largeAreaNameLabel: UILabel!
     @IBOutlet private weak var arrowImageView: UIImageView!
+    private(set) var section = 0
 
-    class func instance(title: String?) -> TableViewHeader {
+    class func instance(title: String?, section: Int) -> TableViewHeader {
         guard let view = TableViewHeader.nib().instantiate(withOwner: self, options: nil).first as? TableViewHeader else {
             fatalError("failuer get xib")
         }
         view.largeAreaNameLabel.text = title
+        view.section = section
         return view
     }
 

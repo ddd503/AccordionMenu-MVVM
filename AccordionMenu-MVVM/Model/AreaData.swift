@@ -7,13 +7,13 @@
 //
 
 struct AreaData: Codable {
-    let largeAreaData: [LargeAreaData]
+    var largeAreaData: [LargeAreaData]
 }
 
 extension AreaData {
     struct LargeAreaData: Codable {
         let areaName: String
-        let smallAreaData: SmallAreaData
+        var smallAreaData: SmallAreaData
     }
 }
 
