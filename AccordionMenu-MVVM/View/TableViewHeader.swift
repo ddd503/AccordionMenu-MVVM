@@ -8,11 +8,21 @@
 
 import UIKit
 
-final class TableViewHeader: UIView {
+protocol TableViewHeaderOutputs: class {
+    var didTapHeaderView: (_ section: Int) -> Void { get set }
+}
+
+protocol TableViewHeaderType {
+    var outputs: TableViewHeaderOutputs { get }
+}
+
+final class TableViewHeader: UIView, TableViewHeaderType {
 
     @IBOutlet private weak var largeAreaNameLabel: UILabel!
     @IBOutlet private weak var arrowImageView: UIImageView!
+    var outputs: TableViewHeaderOutputs { return self }
     private(set) var section = 0
+    var didTapHeaderView: (_ section: Int) -> Void = { _ in }
 
     class func instance(title: String?, section: Int) -> TableViewHeader {
         guard let view = TableViewHeader.nib().instantiate(withOwner: self, options: nil).first as? TableViewHeader else {
@@ -31,4 +41,10 @@ final class TableViewHeader: UIView {
         return UINib(nibName: identifier, bundle: nil)
     }
 
+    @IBAction func tap(_ sender: UITapGestureRecognizer) {
+        didTapHeaderView(section)
+    }
+
 }
+
+extension TableViewHeader: TableViewHeaderOutputs {}

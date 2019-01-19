@@ -16,8 +16,7 @@ protocol ViewModelInputs: class {
 protocol ViewModelOutputs: class {
     var setup: () -> Void { get set }
     var updateTableView: () -> Void { get set }
-    var beginChangeTableView: () -> Void { get set }
-    var endChangeTableView: () -> Void { get set }
+    var updateTableViewSection: (_ section: Int) -> Void { get set }
     var largeArea: [AreaData.LargeAreaData] { get }
     var largeAreaCount: Int { get }
 }
@@ -32,8 +31,7 @@ final class ViewModel: ViewModelType {
     var outputs: ViewModelOutputs { return self }
     var setup: () -> Void = {}
     var updateTableView: () -> Void = {}
-    var beginChangeTableView: () -> Void = {}
-    var endChangeTableView: () -> Void = {}
+    var updateTableViewSection: (_ section: Int) -> Void = { _ in }
     private var areaData: AreaData? {
         didSet {
             updateTableView()
@@ -46,13 +44,10 @@ extension ViewModel: ViewModelInputs {
         setup()
         areaData = DataStore.getAreaData()
     }
-    func tapAccordionButton() {
-        beginChangeTableView()
-        endChangeTableView()
-    }
     func didTapHeader(section: Int) {
         guard var areaData = areaData else { return }
         areaData.largeAreaData[section].smallAreaData.isHidden.toggle()
+        updateTableViewSection(section)
     }
 }
 

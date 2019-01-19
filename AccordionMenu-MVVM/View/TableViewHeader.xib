@@ -31,6 +31,7 @@
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="0.68621604759112409" blue="0.67399835466023905" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="iCI-5f-PCK" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="2fk-g0-1I9"/>
                 <constraint firstItem="xOC-Au-sXD" firstAttribute="leading" secondItem="iCI-5f-PCK" secondAttribute="trailing" constant="20" id="5LQ-0w-HeW"/>
@@ -43,9 +44,15 @@
             <connections>
                 <outlet property="arrowImageView" destination="xOC-Au-sXD" id="2Fo-px-KVo"/>
                 <outlet property="largeAreaNameLabel" destination="iCI-5f-PCK" id="rh3-FK-FRL"/>
+                <outletCollection property="gestureRecognizers" destination="AZ2-y8-Rpe" appends="YES" id="N5W-9V-YG3"/>
             </connections>
             <point key="canvasLocation" x="19.199999999999999" y="134.48275862068968"/>
         </view>
+        <tapGestureRecognizer id="AZ2-y8-Rpe">
+            <connections>
+                <action selector="tap:" destination="iN0-l3-epB" id="onG-t0-AnV"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="down-arrow" width="24" height="24"/>

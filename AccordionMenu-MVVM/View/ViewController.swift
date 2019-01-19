@@ -19,11 +19,6 @@ final class ViewController: UIViewController {
         viewModel.inputs.viewDidLoad()
     }
 
-    @objc private func didTapHeaderView(gestureRecognizer: UITapGestureRecognizer) {
-        guard let headerView = gestureRecognizer.view as? TableViewHeader else { return }
-        viewModel.inputs.didTapHeader(section: headerView.section)
-    }
-
     private func bindViewModel() {
         viewModel.outputs.setup = { [weak self] in
             self?.tableView.dataSource = self
@@ -35,14 +30,20 @@ final class ViewController: UIViewController {
                 self?.tableView.reloadData()
             }
         }
-        viewModel.outputs.beginChangeTableView = { [weak self] in
+        viewModel.outputs.updateTableViewSection = { [weak self] (section) in
+            guard let self = self else { return }
             DispatchQueue.main.async {
-                self?.tableView.beginUpdates()
+                self.tableView.beginUpdates()
+                self.tableView.reloadSections([section], with: .fade)
+                self.tableView.endUpdates()
             }
         }
-        viewModel.outputs.endChangeTableView = { [weak self] in
+    }
+
+    private func bindHeaderView(headerView: TableViewHeader) {
+        headerView.outputs.didTapHeaderView = { [weak self] (section) in
             DispatchQueue.main.async {
-                self?.tableView.endUpdates()
+                self?.viewModel.inputs.didTapHeader(section: section)
             }
         }
     }
@@ -72,8 +73,8 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         // TODO: - ロジックが入ってしまっているためVMへ移す必要がある
         let largeAreaName = viewModel.outputs.largeArea.isEmpty ? nil : viewModel.outputs.largeArea[section].areaName
-        let tableViewHeader = TableViewHeader.instance(title: largeAreaName, section: section)
-        tableViewHeader.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(didTapHeaderView(gestureRecognizer:))))
-        return tableViewHeader
+        let headerView = TableViewHeader.instance(title: largeAreaName, section: section)
+        bindHeaderView(headerView: headerView)
+        return headerView
     }
 }
