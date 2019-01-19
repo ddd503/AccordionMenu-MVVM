@@ -32,20 +32,16 @@ final class ViewModel: ViewModelType {
     var setup: () -> Void = {}
     var updateTableView: () -> Void = {}
     var updateTableViewSection: (_ section: Int) -> Void = { _ in }
-    private var areaData: AreaData? {
-        didSet {
-            updateTableView()
-        }
-    }
+    private var areaData: AreaData?
 }
 
 extension ViewModel: ViewModelInputs {
     func viewDidLoad() {
         setup()
         areaData = DataStore.getAreaData()
+        updateTableView()
     }
     func didTapHeader(section: Int) {
-//        guard var areaData = areaData else { return }
         areaData?.largeAreaData[section].smallAreaData.isHidden.toggle()
         updateTableViewSection(section)
     }
