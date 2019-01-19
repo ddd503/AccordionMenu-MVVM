@@ -33,7 +33,7 @@ final class TableViewHeader: UIView, TableViewHeaderType {
         view.section = section
         return view
     }
-    
+
     static var identifier: String {
         return String(describing: self)
     }

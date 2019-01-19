@@ -57,9 +57,8 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO: - ロジックが入ってしまっているためVMへ移す必要がある
-        let smallAreaData = viewModel.outputs.largeArea[section].smallAreaData
-        if viewModel.outputs.largeArea.isEmpty || smallAreaData.isHidden { return 0 }
+        let largeAreaData = viewModel.outputs.largeArea.isEmpty ? nil : viewModel.outputs.largeArea[section]
+        guard let smallAreaData = largeAreaData?.smallAreaData, !smallAreaData.isHidden else { return 0 }
         return smallAreaData.areaNames.count
     }
 
