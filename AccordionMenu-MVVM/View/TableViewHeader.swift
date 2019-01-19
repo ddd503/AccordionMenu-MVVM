@@ -21,24 +21,31 @@ final class TableViewHeader: UIView, TableViewHeaderType {
     @IBOutlet private weak var largeAreaNameLabel: UILabel!
     @IBOutlet private weak var arrowImageView: UIImageView!
     var outputs: TableViewHeaderOutputs { return self }
-    private(set) var section = 0
     var didTapHeaderView: (_ section: Int) -> Void = { _ in }
+    private(set) var section = 0
 
-    class func instance(title: String?, section: Int) -> TableViewHeader {
+    class func instance(title: String?, section: Int, isHiddenSmallArea: Bool?) -> TableViewHeader {
         guard let view = TableViewHeader.nib().instantiate(withOwner: self, options: nil).first as? TableViewHeader else {
             fatalError("failuer get xib")
         }
         view.largeAreaNameLabel.text = title
+        view.updateArrowImage(isHidden: isHiddenSmallArea)
         view.section = section
         return view
     }
-
+    
     static var identifier: String {
         return String(describing: self)
     }
 
     static func nib() -> UINib {
         return UINib(nibName: identifier, bundle: nil)
+    }
+
+    private func updateArrowImage(isHidden: Bool?) {
+        guard let isHidden = isHidden else { return }
+        arrowImageView.image = nil
+        arrowImageView.image = isHidden ? UIImage(named: "down-arrow") : UIImage(named: "up-arrow")
     }
 
     @IBAction func tap(_ sender: UITapGestureRecognizer) {

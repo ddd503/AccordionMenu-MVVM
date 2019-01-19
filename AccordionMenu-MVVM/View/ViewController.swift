@@ -72,9 +72,10 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        // TODO: - ロジックが入ってしまっているためVMへ移す必要がある
-        let largeAreaName = viewModel.outputs.largeArea.isEmpty ? nil : viewModel.outputs.largeArea[section].areaName
-        let headerView = TableViewHeader.instance(title: largeAreaName, section: section)
+        let largeAreaData = viewModel.outputs.largeArea.isEmpty ? nil : viewModel.outputs.largeArea[section]
+        let headerView = TableViewHeader.instance(title: largeAreaData?.areaName,
+                                                  section: section,
+                                                  isHiddenSmallArea: largeAreaData?.smallAreaData.isHidden)
         bindHeaderView(headerView: headerView)
         return headerView
     }

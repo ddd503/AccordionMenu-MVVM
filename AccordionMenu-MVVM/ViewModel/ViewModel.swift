@@ -32,7 +32,7 @@ final class ViewModel: ViewModelType {
     var setup: () -> Void = {}
     var updateTableView: () -> Void = {}
     var updateTableViewSection: (_ section: Int) -> Void = { _ in }
-    private var areaData: AreaData?
+    private var areaData: AreaData!
 }
 
 extension ViewModel: ViewModelInputs {
@@ -42,7 +42,7 @@ extension ViewModel: ViewModelInputs {
         updateTableView()
     }
     func didTapHeader(section: Int) {
-        areaData?.largeAreaData[section].smallAreaData.isHidden.toggle()
+        areaData.largeAreaData[section].smallAreaData.isHidden.toggle()
         updateTableViewSection(section)
     }
 }

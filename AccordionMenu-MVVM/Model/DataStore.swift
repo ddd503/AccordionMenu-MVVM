@@ -16,6 +16,6 @@ final class DataStore {
             let decoder = JSONDecoder()
             let response = try decoder.decode(AreaData.self, from: jsonData)
             return response
-        } catch { fatalError() }
+        } catch { fatalError("Failed to get areaData") }
     }
 }
