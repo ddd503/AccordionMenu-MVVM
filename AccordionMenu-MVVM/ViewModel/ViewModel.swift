@@ -45,8 +45,8 @@ extension ViewModel: ViewModelInputs {
         areaData = DataStore.getAreaData()
     }
     func didTapHeader(section: Int) {
-        guard var areaData = areaData else { return }
-        areaData.largeAreaData[section].smallAreaData.isHidden.toggle()
+//        guard var areaData = areaData else { return }
+        areaData?.largeAreaData[section].smallAreaData.isHidden.toggle()
         updateTableViewSection(section)
     }
 }

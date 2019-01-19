@@ -21,9 +21,10 @@ final class ViewController: UIViewController {
 
     private func bindViewModel() {
         viewModel.outputs.setup = { [weak self] in
-            self?.tableView.dataSource = self
-            self?.tableView.delegate = self
-            self?.tableView.tableFooterView = UIView()
+            guard let self = self else { return }
+            self.tableView.dataSource = self
+            self.tableView.delegate = self
+            self.tableView.tableFooterView = UIView()
         }
         viewModel.outputs.updateTableView = { [weak self] in
             DispatchQueue.main.async {
